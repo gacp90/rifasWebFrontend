@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rifas-web-frontend",
+            "outputPath": "../rifasWebBackend/public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -94,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "97f566a9-3ded-4adb-b543-37482c6c67ef"
   }
 }

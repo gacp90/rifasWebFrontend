@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/swiper/swiper-bundle.css";
+
+.bg-primero{
+    background: #15F5BA !important;
+}
+.bg-segundo{
+    background: #211951 !important;
+}
+.bg-segundo-dark{
+    background: #16123A !important;
+}
+.bg-tercero{
+    background: #836FFF !important;
+}
+.bg-curto{
+    background: #F0F3FF !important;
+}
+
+.text-primero{
+    color: #15F5BA !important;
+}
+.text-segundo{
+    color: #211951 !important;
+}
+.text-tercero{
+    color: #836FFF !important;
+}
+.text-cuerto{
+    color: #F0F3FF !important;
+}

@@ -1,0 +1,278 @@
+<!-- HERO -->
+<section class="container mt-4">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center ">
+        
+        <div class="col-12 col-md-3">
+            <h1 class="display-4 from-bottom delay-1">RIFAS EL MOCHO</h1>
+            <h2 class="fw-light pb-1 from-bottom">¡Participa y gana increíbles premios cada mes!</h2>
+            <h5 class="fw-light pb-3 from-bottom delay-2">Compra tu boleto ahora y únete a los ganadores de la rifa que siempre paga.</h5>
+        </div>
+
+        <!-- SLIDER -->
+        <div class="col-12 col-md-8">
+            <swiper-container #swiper class="swiper" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/1.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/2.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/3.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/4.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/5.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/6.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/7.webp" alt="">
+                </swiper-slide>
+                <!-- SLIDER -->
+                <swiper-slide class="swiper-slide">
+                    <img class="rounded" src="../../../assets/img/home/banners/8.webp" alt="">
+                </swiper-slide>
+
+            </swiper-container>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CALL ACTION -->
+<section class="mt-4 py-4 call-action bg-primero">
+    <div class="py-2" style="visibility: visible; animation-name: fadeIn;">
+        <div class="section-header text-center">
+            <h3 class="section-description text-white display-5">¿Por qué elegir Rifas El Mocho?</h3>
+        </div>
+    </div>
+</section>
+
+<!-- INFO -->
+<section class="container mt-4 mb-grid-gutter">
+    <div class="py-4">
+        <div class="d-flex flex-wrap justify-content-center align-items-center ">
+            <div class="mb-2">
+                <img class="rounded" src="../../../assets/img/home/banners/persona2.webp" alt="rifas el mocho">
+            </div>
+            <div class="px-2 pe-sm-0 ps-sm-5">
+
+                <div class="mb-3">
+                    <h2 class="mb-1 display-5 text-break">"¡Ganar nunca fue tan fácil!"</h2>
+                </div>
+                <div>
+                    <P class="mb-0">- "Premios garantizados y entregados al instante"</P>
+                    <P class="mb-0">- "Participaciones transparentes y públicas"</P>
+                    <P class="mb-0">- "Más de 1324 ganadores felices"</P>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- RIFAS ACTIVAS -->
+ <section class="container mt-4">
+    <app-cards [params]="{'title': 'Rifas Activas', 'search': 'Activas'}"></app-cards>
+ </section>
+
+ <!-- RIFAS FINALIZADAS -->
+ <section class="container mt-4">
+    <app-cards [params]="{'title': 'Rifas Finalizadas', 'search': 'Finalizadas'}"></app-cards>
+ </section>
+
+ <!-- TESTIMONIOS -->
+<section  class="container py-5 bg-light rounded-3 my-4 my-md-5 px-3 px-sm-4">
+    <h2 class="h3 py-4 text-center">Testimonios</h2>
+
+    <div class="d-flex justify-content-center align-items-center mx-auto my-5">
+
+        <swiper-container class="mySwiper" slides-per-view="1"  grab-cursor="true" spaceBetween="20">
+
+            <swiper-slide style="border-radius: 2rem;">
+                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
+                    <div class="card border-0">
+                        <div class="card-body px-3 fs-md text-muted text-center">
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div class="star-rating">
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                </div>
+                            </div>
+                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
+                        </div>
+                    </div>
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                        <div class="ps-3">
+                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </swiper-slide>
+            <swiper-slide style="border-radius: 2rem;">
+                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
+                    <div class="card border-0">
+                        <div class="card-body px-3 fs-md text-muted text-center">
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div class="star-rating">
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                </div>
+                            </div>
+                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
+                        </div>
+                    </div>
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                        <div class="ps-3">
+                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </swiper-slide>
+            <swiper-slide style="border-radius: 2rem;">
+                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
+                    <div class="card border-0">
+                        <div class="card-body px-3 fs-md text-muted text-center">
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div class="star-rating">
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                </div>
+                            </div>
+                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
+                        </div>
+                    </div>
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                        <div class="ps-3">
+                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </swiper-slide>
+            <swiper-slide style="border-radius: 2rem;">
+                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
+                    <div class="card border-0">
+                        <div class="card-body px-3 fs-md text-muted text-center">
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div class="star-rating">
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                </div>
+                            </div>
+                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
+                        </div>
+                    </div>
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                        <div class="ps-3">
+                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </swiper-slide>
+            
+
+
+
+        </swiper-container>
+    </div>
+
+
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="container pt-4 mb-4 mb-md-5">
+    <h2 class="h3 text-center mb-grid-gutter pt-2">Como funciona?</h2>
+    <div class="row g-0 bg-light rounded-3">
+        <div class="col-xl-4 col-lg-12 col-md-4 border-end bg-primero">
+            <div class="py-3">
+                <div class="d-flex align-items-center mx-auto py-3 px-3" style="max-width: 362px;">
+                    <div class="display-3 fw-normal opacity-10 me-4 text-white">01</div>
+                    <div class="ps-2">
+                        <!-- <img class="d-block my-2" src="../../../assets/img/grocery/steps/01.png" width="72" alt="Order online"> -->
+                        <p class="mb-3 pt-1 text-white">Elige una rifa activa</p>
+                    </div>
+                </div>
+                <hr class="d-md-none d-lg-block d-xl-none">
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12 col-md-4 border-end bg-segundo">
+            <div class="py-3">
+                <div class="d-flex align-items-center mx-auto py-3 px-3" style="max-width: 362px;">
+                    <div class="display-3 fw-normal opacity-15 me-4 text-white">02</div>
+                    <div class="ps-2">
+                        <!-- <img class="d-block my-2" src="../../../assets/img/grocery/steps/box.png" width="72" alt="Grocery collected"> -->
+                        <p class="mb-3 pt-1 text-white">Compra tu boleto desde nuestra web</p>
+                    </div>
+                </div>
+                <hr class="d-md-none d-lg-block d-xl-none">
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12 col-md-4 bg-tercero">
+            <div class="py-3">
+                <div class="d-flex align-items-center mx-auto py-3 px-3" style="max-width: 362px;">
+                    <div class="display-3 fw-normal opacity-15 me-4 text-white">03</div>
+                    <div class="ps-2">
+                        <!-- <img class="d-block my-2" src="../../../assets/img/grocery/steps/03.png" width="72" alt="Delivery"> -->
+                        <p class="mb-3 pt-1 text-white">Espera al sorteo en vivo y descubre si eres el ganador.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="container-fluid px-0">
+    <div class="row g-0">
+
+        <div class="col-md-6">
+
+            <a class="card border-0 rounded-0 text-decoration-none py-md-4 bg-faded-primary" href="https://www.instagram.com/rifaselmocho/" target="_blank">
+                <div class="card-body text-center">
+                    <i class="ci-instagram h3 mt-2 mb-4 text-primary"></i>
+                    <h3 class="h5 mb-1">Siguenos en instagram</h3>
+                    <p class="text-muted fs-sm">{{'@rifaselmocho'}}</p>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="col-md-6">
+            <a class="card border-0 rounded-0 text-decoration-none py-md-4 bg-faded-accent" href="https://www.facebook.com/rifaselmocho/" target="_blank">
+                <div class="card-body text-center">
+                    <i class="ci-facebook h3 mt-2 mb-4 text-accent"></i>
+                    <h3 class="h5 mb-1">Siguenos en facebook</h3>
+                    <p class="text-muted fs-sm">{{'@rifaselmocho'}}</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</section>
