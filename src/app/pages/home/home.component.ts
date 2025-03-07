@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
+import { RifasService } from 'src/app/services/rifas.service';
+import { Rifa } from 'src/app/models/rifas.model';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,8 @@ export class HomeComponent {
 
   public empresa:any = environment.empresa;
   @ViewChild('swiper', { static: true }) swiperRef!: ElementRef;
+
+  constructor(  private rifasService: RifasService){}
 
   ngOnInit(): void {
     let scrollToTop = window.setInterval(() => {
@@ -30,8 +34,36 @@ export class HomeComponent {
     // Inicializar Swiper
     swiperElement.initialize();
 
+    this.loadRifas();
+
+  }
+
+  /** ================================================================
+   *  LOAD RIFAS
+  ==================================================================== */
+  public rifas: Rifa[] = [];
+  public query: any = {
+    desde: 0,
+    hasta: 50,
+    abierta: true,
+    sort: { fecha: -1}
+  }
+
+  loadRifas(){
+
+    this.rifasService.loadRifas(this.query)
+        .subscribe( ({rifas}) => {
+          this.rifas = rifas;
+        }, (err) => {
+          console.log(err);          
+        })
+
   }
   
+
+  /** ================================================================
+   *  SWIPER CONFIG
+  ==================================================================== */
   public config = {
     slidesPerView: 1,
     spaceBetween: 10,

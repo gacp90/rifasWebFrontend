@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  base_url: 'https://demo.shopybrands.com/api',
-  local_url: 'https://tienda.shopybrands.com',
+  base_url: 'http://localhost:3000/api',
+  local_url: 'http://localhost:4200',
   empresa: {
     name:'rifaselmocho.com',
     address:'San Cristóbal - Táchira - Venezuela',

@@ -14,36 +14,10 @@
             <swiper-container #swiper class="swiper" autoplay-delay="2500" autoplay-disable-on-interaction="false">
                 
                 <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/1.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/2.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/3.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/4.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/5.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/6.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/7.webp" alt="">
-                </swiper-slide>
-                <!-- SLIDER -->
-                <swiper-slide class="swiper-slide">
-                    <img class="rounded" src="../../../assets/img/home/banners/8.webp" alt="">
+                <swiper-slide class="swiper-slide" *ngFor="let rifa of rifas">
+                    <a [routerLink]="['/rifa', rifa.rifid]">
+                        <img class="rounded" [src]="rifa.portada?.img| imagen: 'portada'" alt="">
+                    </a>
                 </swiper-slide>
 
             </swiper-container>
@@ -120,7 +94,31 @@
                             Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
                         </div>
                     </div>
-                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/testimonials/01.jpg" width="50" alt="Laura Willson">
+                        <div class="ps-3">
+                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </swiper-slide>
+
+            <swiper-slide style="border-radius: 2rem;">
+                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
+                    <div class="card border-0">
+                        <div class="card-body px-3 fs-md text-muted text-center">
+                            <div class="mb-2 d-flex justify-content-center">
+                                <div class="star-rating">
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                    <i class="star-rating-icon ci-star-filled active"></i>
+                                </div>
+                            </div>
+                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
+                        </div>
+                    </div>
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/testimonials/02.jpg" width="50" alt="Laura Willson">
                         <div class="ps-3">
                             <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
                         </div>
@@ -143,30 +141,7 @@
                             Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
                         </div>
                     </div>
-                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
-                        <div class="ps-3">
-                            <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
-                        </div>
-                    </footer>
-                </blockquote>
-            </swiper-slide>
-            <swiper-slide style="border-radius: 2rem;">
-                <blockquote class="mb-2 tns-item" id="tns4-item1" aria-hidden="true" tabindex="-1">
-                    <div class="card border-0">
-                        <div class="card-body px-3 fs-md text-muted text-center">
-                            <div class="mb-2 d-flex justify-content-center">
-                                <div class="star-rating">
-                                    <i class="star-rating-icon ci-star-filled active"></i>
-                                    <i class="star-rating-icon ci-star-filled active"></i>
-                                    <i class="star-rating-icon ci-star-filled active"></i>
-                                    <i class="star-rating-icon ci-star-filled active"></i>
-                                    <i class="star-rating-icon ci-star-filled active"></i>
-                                </div>
-                            </div>
-                            Compré mi boleto y gané una pantalla en mi primera participación. ¡Recomendadísimo!
-                        </div>
-                    </div>
-                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/grocery/testimonios/diana.jpg" width="50" alt="Laura Willson">
+                    <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="../../../assets/img/testimonials/03.jpg" width="50" alt="Laura Willson">
                         <div class="ps-3">
                             <h6 class="fs-sm mb-n1">Diana Cuevas</h6><span class="fs-ms text-muted opacity-75">Oct 05, 2023</span>
                         </div>

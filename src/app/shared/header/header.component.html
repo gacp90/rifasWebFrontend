@@ -3,37 +3,49 @@
 
     <nav class="container navbar navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand" routerLink="/">Rifas el mocho</a>
+        <a class="navbar-brand py-0 " routerLink="/">
+          <!-- Rifas el mocho -->
+           <div class="d-flex flex-wrap flex-row align-items-center">
+             <img width="75" src="../../../assets/img/logo/logo180.webp" alt="Rifas el mocho">
+
+             <div class="ms-2" style="line-height: 1.2rem;">
+                <span style="color: #85cd2b"> RIFAS EL MOCHO</span><br>
+                <small class="fs-6" style="color: #85cd2b"> La que siempre paga</small>
+              </div>
+             
+           </div>
+
+        </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- BTN CARRITO -->
-        <a class="navbar-tool-icon-box bg-secondary dropdown-toggle d-block d-sm-none" routerLink="/carrito">
-            <!-- <span *ngIf="carrito.items.length > 0" class="navbar-tool-label"> {{ carrito.items.length }} </span> -->
+        <!-- <a class="navbar-tool-icon-box bg-secondary dropdown-toggle d-block d-sm-none" routerLink="/carrito">
+            <span *ngIf="carrito.items.length > 0" class="navbar-tool-label"> {{ carrito.items.length }} </span>
             <i class="navbar-tool-icon ci-cart"></i>
-        </a>
-
-
+        </a> -->
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" routerLink="/home" >Inicio</a>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item " routerLinkActive="active">
+                <a class="nav-link"  routerLink="/home" >Inicio</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/about">Nosotros</a>
-              </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link"  routerLink="/about">Nosotros</a>
+              </li> -->
+              <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/contact">Contacto</a>
               </li>
             </ul>
         </div>
 
         <!-- BTN CARRITO -->
-        <a class="navbar-tool-icon-box bg-secondary dropdown-toggle d-none d-md-block" routerLink="/carrito">
-            <!-- <span *ngIf="carrito.items.length > 0" class="navbar-tool-label"> {{ carrito.items.length }} </span> -->
+        <!-- <a class="navbar-tool-icon-box bg-secondary dropdown-toggle d-none d-md-block" routerLink="/carrito">
+            <span *ngIf="carrito.items.length > 0" class="navbar-tool-label"> {{ carrito.items.length }} </span>
             <i class="navbar-tool-icon ci-cart"></i>
-        </a>
+        </a> -->
 
     </nav>
 

@@ -1,4 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Rifa } from 'src/app/models/rifas.model';
+import { RifasService } from 'src/app/services/rifas.service';
 
 @Component({
   selector: 'app-cards',
@@ -6,6 +8,10 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent {
+
+  @Input('params') params!: any;
+
+  constructor(  private rifasService: RifasService){}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -17,10 +23,45 @@ export class CardsComponent {
 
     // Inicializar Swiper
     swiperElement.initialize();
+
+    this.loadRifas();
   }
 
-  @Input('params') params!: any;
-  public products: any[] = [];
+  
+  /**======================================================================
+   * LOAD RIFAS
+  ===================================================================== */
+  public rifas: Rifa[] = [];
+  public query: any = {
+    desde: 0,
+    hasta: 100,
+    sort: {}
+  }
+
+  loadRifas(){
+
+    switch (this.params.search) {
+      case 'Activas':
+
+        this.query.abierta = true;
+        
+        break;
+      
+      case 'Finalizadas':
+        this.query.abierta = false;
+        break;
+    
+      default:
+        break;
+    }
+
+    this.rifasService.loadRifas(this.query)
+        .subscribe( ({rifas}) => {
+          this.rifas = rifas;          
+        })
+
+  }
+
 
   /**======================================================================
    * SWIPER
