@@ -10,10 +10,12 @@
                 </li>
                 <li class="breadcrumb-item text-nowrap"><a>Rifa</a>
                 </li>
-                <li class="breadcrumb-item text-nowrap active" aria-current="page"> {{rifa.name}} </li>
+                <li class="breadcrumb-item text-nowrap active text-break" aria-current="page"> <span class="text-break text-wrap">{{rifa.name}}</span>  </li>
             </ol>
         </nav>
         <!-- Content-->
+        <!-- Product Gallery + description-->
+
         <!-- Product Gallery + description-->
         <section class="row g-0 mx-n2 pb-5 mb-xl-3">
             <div class="col-xl-7 px-2 mb-3">
@@ -27,7 +29,7 @@
 
                         <div class="product-gallery-thumblist order-sm-1">
                             <a (click)="portada = img.img" class="product-gallery-thumblist-item pointer" *ngFor="let img of rifa.img">
-                                <img [src]="img.img | imagen" [alt]="rifa.name">
+                                <img [src]="img.img | imagen" [alt]="rifa.name" style="width: 100%; height: 100%; object-fit: cover;">
                             </a>
                         </div>
                     </div>
@@ -37,24 +39,28 @@
             <div class="col-xl-5 px-2 mb-3">
                 <div class="h-100 rounded-3 py-5 px-4 px-sm-5">
                     <h4 *ngIf="!rifa.abierta" class="mb-0 text-danger">Finalizada</h4>
-                    <h1 class="h2"> {{ rifa.name }}</h1>
-                    <h2 class="h5"> "{{ rifa.loteria }}" </h2>
+                    <h1 class="h2 text-white"> {{ rifa.name }}</h1>
+                    <h2 class="h5 text-white"> "{{ rifa.loteria }}" </h2>
                     <!-- TIMER -->
-                    <p class="mb-1">Faltan:</p>
+                    <p class="mb-1 text-white">Faltan:</p>
                     <app-countdown-timer [targetDate]="rifa.fecha"></app-countdown-timer>
-                    <p class="d-flex">
+                    <p class="d-flex text-white">
                       <i class="fi-calendar fs-base me-2" style="margin-top: 3px"></i>
                       {{ rifa.fecha | date:'dd/MM/Y h:m a' }}
                     </p>                 
                     
                     <div>
-                        <div class="h2 fw-normal text-accent">
-                            <span>{{ rifa.monto | currency }}</span>
+                        <div class="h2 fw-normal text-white">
+                            <span class="text-white">{{ rifa.monto * metodoSelected?.tasa!| number }} Bs</span>
                         </div>
                     </div>
 
-                    <h6>Descripción de la rifa</h6>
-                    <p> {{ rifa.descripcion }} </p>
+                    <h6 class="text-white">Descripción de la rifa</h6>
+                    <p class="text-white"> {{ rifa.descripcion }} </p>
+
+                    <button type="button" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#searchTicket">
+                        Verificar mi ticket
+                    </button>
                 </div>
             </div>
         </section>
@@ -62,18 +68,18 @@
         <!-- SECTION TICKET GANADOR -->
         <section *ngIf="ganador" class="container mt-sm-2 mt-md-3 mt-lg-4">
             <h3 class="h5">Ticket Ganador</h3>
-            <div class="row g-0">
+            <div class="row g-0" style="color: #fff">
               <div class="col-md-3 mb-n4 mb-md-0">
                 <div class="position-relative d-flex flex-column align-items-center justify-content-center h-100 py-5">
                   <div class="position-absolute top-0 start-0 w-100 h-100 d-none d-md-block">
-                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark" style="background-color: #FF9C73"></span>
-                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark" style="background-color: #1b273a"></span>
+                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark" style="background-color: #ec5d47"></span>
+                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark" style="background-color: #c43431"></span>
                   </div>
                   <div class="position-absolute top-0 start-0 w-100 h-100 d-md-none">
-                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none-dark" style="background: linear-gradient(90deg, #FF9C73 0%, #FCF596 100%)"></span>
+                    <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none-dark" style="background: linear-gradient(90deg, #ec5d47 0%, #c43431 100%)"></span>
                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none d-block-dark" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
                   </div>
-                  <div class="position-relative z-1 display-1 text-white text-nowrap mb-0">
+                  <div class="position-relative z-1 display-1  text-nowrap mb-0">
                     #{{ ganador.numero}}                    
                   </div>
                 </div>
@@ -85,7 +91,7 @@
                   </svg>
                 </div>
                 <div class="position-relative">
-                  <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #FF9C73 0%, #FCF596 100%)"></span>
+                  <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #ec5d47 0%, #c43431 100%)"></span>
                   <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark rtl-flip" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
                   <div class="align-items-center position-relative z-2">
                     <div *ngIf="ganador.disponible" class="">
@@ -116,20 +122,19 @@
             <div class="d-none d-lg-block" style="padding-bottom: 3%"></div>
         </section>
 
-
-        <!-- SECTION PREMIOS ESPECIALES  -->
+         <!-- SECTION PREMIOS ESPECIALES  -->
         <section *ngIf="rifa.premios.length > 0" class="container pb-5 mb-2 mb-md-4 mb-lg-5">
-            <div class="bg-secondary rounded-3 py-5 px-3 px-md-0">
+            <div class="rounded-3 py-5 px-3 px-md-0" style="background: rgba(0, 0, 0, 0.2);">
                 <div class="row justify-content-center mb-2 py-md-2 py-lg-4">
                     <div class="col-lg-10 col-md-11">
                         <h2 class="pb-3">Premios Especiales</h2>
                         <div class="row row-cols-1 row-cols-md-2 g-4">
     
                             <!-- Item -->
-                            <div class="col" *ngFor="let premio of rifa.premios; let i = index">
-                                <div class="card h-100 border-0 shadow-sm p-md-2 p-lg-4">
+                            <div class="col " *ngFor="let premio of rifa.premios; let i = index">
+                                <div class="card h-100 border-0 bg-segundo-dark shadow-sm p-md-2 p-lg-4">
                                     <div class="card-body d-flex align-items-center">
-                                        <div class="bg-primary shadow-primary rounded-3 flex-shrink-0 p-3">
+                                        <div class="bg-primero shadow-primary rounded-3 flex-shrink-0 p-3">
                                             <p class="mb-0 text-white display-4"> {{ i + 1 }} </p>
                                         </div>
                                         <div class="ps-4 ms-lg-3">
@@ -148,18 +153,18 @@
         </section>
 
         <!-- SECTION METODOS DE PAGOS  -->
-        <section *ngIf="rifa.metodos.length > 0" class="container pb-5 my-md-2 my-lg-4 my-xl-5">
-            <h2 class="pb-3">Metodos de pago</h2>
+        <section *ngIf="rifa.metodos.length > 0" class="container pb-5 my-md-2 my-lg-4 my-xl-5 bg-segundo-dark">
+            <h2 class="pb-3 text-white">Metodos de pago</h2>
             <div class="justify-content-center pt-5 pb-1 pb-sm-2 pb-md-3">
                 <div class="d-flex flex-wrap gap-2">
     
-                    <div *ngFor="let metodo of rifa.metodos" class="d-flex flex-column w-sm-50 bg-white border rounded p-4 text-center mb-3">
+                    <div *ngFor="let metodo of rifa.metodos" class="d-flex flex-column w-sm-50 rounded p-4 text-center mb-3" style="background: rgba(0, 0, 0, 0.2);">
                         <div class="card-body p-0">
-                            <div class="d-inline-block fw-bold text-dark fs-3 lh-1 p-3">
+                            <div class="d-inline-block fw-bold fs-3 lh-1 p-3 text-white">
                                 {{ metodo.name }}
                             </div>
-                            <p class="mb-0 text-break">{{ metodo.descripcion }}</p>
-                            <p class="pb-2 pb-sm-3 mb-3"> <span class="fw-bold">cuenta: </span> {{ metodo.cuenta }}</p>
+                            <p class="mb-0 text-break text-white">{{ metodo.descripcion }}</p>
+                            <p class="pb-2 pb-sm-3 mb-3 text-white"> <span class="fw-bold text-white">cuenta: </span> {{ metodo.cuenta }}</p>
                         </div>
                     </div>
     
@@ -167,116 +172,167 @@
             </div>
         </section>
 
+        <!-- SECTION PORCENTAJE -->
+         <!-- PORCENTAJE DE MUMEROS -->
+
+        <section class="container">
+            <div class="mb-3">
+                <h5 class="m-t-30 text-white">Porcentaje<span class="pull-right text-white"> {{ ((apartados + pagados )* 100) / rifa.numeros }}% </span></h5>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="height:15px;" [ngStyle]="{'width': ((apartados + pagados )* 100) / rifa.numeros + '%'}" role="progressbar"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- SECTION TICKETS  -->
         <section *ngIf="rifa.abierta" class="container pb-5 my-md-2 my-lg-4 my-xl-5">
-            <h2 class="pb-3 mb-0">Tickets Disponibles</h2>
-            <p >Selecciona los tickets que deseas comprar</p>
+            <h2 class="pb-3 mb-0 text-white">Selecciona la cantidad tickets que deseas comprar</h2>
 
-            <!-- FILTROS -->
-            <div class="d-flex justify-content-between flex-wrap mt-1">
-
+            <div class="input-group mb-3 col-12 col-md-6">
+                <div class="input-group-prepend">
+                    <button (click)="cambiarValor(-1)" class="btn btn-danger" type="button" id="button-addon1">-</button>
+                </div>
+                <input type="number" min="1" max="100" [(ngModel)]="cantt" (ngModelChange)="changeValor($event)" #cant class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                    <button (click)="cambiarValor(1)" class="btn btn-success" type="button" id="button-addon2">+</button>
+                </div>
+            </div>
+            
+            <!-- REGISTRAR PAGO -->
+            <div>
                 <div>
-                    <h3> Filtros </h3>
+                    <p class="mb-1 text-center text-muted"> <small>TOTAL:</small> </p>
+                    <h4  class="text-success text-center display-4"> {{ (cantt * rifa.monto) * metodoSelected?.tasa! | number }} bs </h4>
                 </div>
 
-                <div class="my-2">
-
-                    <label for="mostrar" class="me-2">Mostrar: </label>
-                    <select name="" id="" [value]="query.hasta" #mostrar (change)="limiteChange(mostrar.value)">
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1000">1000</option>
-                    </select>
-
+                <hr>
+                
+                <hr>
+                
+                <div *ngIf="metodoSelected" class="card shadow my-4">
+                    <div class="card-body text-center">
+                        <h4 class="text-dark mb-2"> {{ metodoSelected.name }} </h4>
+                        <p class="text-dark mb-0 text-break">{{ metodoSelected.descripcion }}</p>
+                        <p class="text-dark mb-0">
+                            <span class="fw-bold text-dark">cuenta: </span> {{ metodoSelected.cuenta }}
+                        </p>
+                        <p *ngIf="metodoSelected.tasa !== 1" class="text-dark mb-0">
+                            <span class="fw-bold text-dark">Tasa: </span> {{ metodoSelected.tasa | number }}
+                        </p>
+                    </div>
                 </div>
 
-            </div>
+                <form autocomplete="off" [formGroup]="paidForm" (ngSubmit)="registrarPago()">
 
-            <!-- BUSCADOR DE TICKETS -->
-            <div class="mb-3">
-               <div class="form-gruop">
-                   <div class="d-flex flex-wrap justify-content-between">
-                       <label for="">Buscar ticket</label>
-                       <a class="pointer cursor text-warning" (click)="limpiar()" >Limpiar Filtros</a>
-                   </div>
-                   <input type="search" class="form-control" placeholder="buscar ticket" (keydown.enter)="searchTicket(searchI.value)" (keyup)="searchTicket(searchI.value)" #searchI>
-               </div>
-            </div>
-
-            <!-- TICKETS SELECCIONADOS -->
-            <div class="d-flex justify-content-center flex-wrap w-100">
-
-                <ng-container>
-                    <div *ngIf="listTicketsSelect.length === 0">
-                        <p class="text-muted"> Aun no has seleccionado ningún ticket </p>
+                    <div class="my-3">
+                        <label for="metodoPago" class="form-label text-white">Metodo de pago</label>
+                        <select [ngClass]="{'is-invalid': ms.value === '' && paidSubmitted, 'is-valid': ms.value !== '' && paidSubmitted }" formControlName="metodo" class="form-select" aria-label="Default select example" (change)="selecMetodo(ms.value)" #ms>
+                            <option value="">Seleccionar Metodo de Pago</option>
+                            <option [value]="metodo.name" *ngFor="let metodo of rifa.metodos" > {{ metodo.name }} </option>
+                        </select>
+                        <small id="metodoPago" *ngIf="ms.value === '' && paidSubmitted" class="text-danger">Este campo es obligatorio</small>
                     </div>
 
-                    <ng-container *ngFor="let ticket of listTicketsSelect; let i = index">
-                        <button  class="btn btn-sm btn-success waves-effect waves-light m-1  position-relative" type="button">
-                            <span (click)="delTicketList(i)" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">x</span>
-                            {{ ticket.numero }}
+
+
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">Monto</label>
+                        <input type="number" min="1" formControlName="amount" [ngClass]="{'is-invalid': validatePaid('amount'), 'is-valid': !validatePaid('amount') && paidSubmitted }" class="form-control" placeholder="Monto" aria-describedby="Monto"/>
+                        <small id="amount" *ngIf="validatePaid('amount')" class="text-danger">Este campo es obligatorio y debe ser mayor a 0</small>
+                    </div>                    
+
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">Nombres</label>
+                        <input type="text" formControlName="nombre" [ngClass]="{'is-invalid': validatePaid('nombre'), 'is-valid': !validatePaid('nombre') && paidSubmitted }" class="form-control" placeholder="nombre" aria-describedby="nombre"/>
+                        <small id="nombre" *ngIf="validatePaid('nombre')" class="text-danger">Este campo es obligatorio</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">Cedula</label>
+                        <input type="text" formControlName="cedula" [ngClass]="{'is-invalid': validatePaid('cedula'), 'is-valid': !validatePaid('cedula') && paidSubmitted }" class="form-control" placeholder="cedula" aria-describedby="cedula"/>
+                        <small id="cedula" *ngIf="validatePaid('cedula')" class="text-danger">Este campo es obligatorio</small>
+                    </div>
+
+                    <div class="row mb-3">                    
+                        <div class="col-4">
+                            <label for="codigoTelefonico" class="form-label text-white">Código Telefónico</label>
+                            <select #cs formControlName="codigo" class="form-select" id="codigoTelefonico" [ngClass]="{'is-invalid': cs.value === '' && paidSubmitted, 'is-valid': cs.value !== '' && paidSubmitted }">
+                                <option value="">Seleccionar Codigo</option>
+                                <option *ngFor="let pais of paises" [value]="pais.phoneCode">
+                                    {{ pais.nameES }} (+{{ pais.phoneCode }})
+                                </option>
+                            </select>
+                            <small id="codigo" *ngIf="cs.value === '' && paidSubmitted" class="text-danger">Este campo es obligatorio</small>
+
+                        </div>
+                        
+                        <div class="col">
+                            <label for="" class="form-label text-white">Telefono ejemplo 4240000000</label>
+                            <input type="text" formControlName="telefono" [ngClass]="{'is-invalid': validatePaid('telefono'), 'is-valid': !validatePaid('telefono') && paidSubmitted }" class="form-control" placeholder="telefono" aria-describedby="telefono"/>
+                            <small id="telefono" *ngIf="validatePaid('telefono')" class="text-danger">Este campo es obligatorio</small>
+                        </div>
+                    </div>            
+
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">Dirección</label>
+                        <input type="text" formControlName="direccion" [ngClass]="{'is-invalid': validatePaid('direccion'), 'is-valid': !validatePaid('direccion') && paidSubmitted }" class="form-control" placeholder="direccion" aria-describedby="direccion"/>
+                        <small id="direccion" *ngIf="validatePaid('direccion')" class="text-danger">Este campo es obligatorio</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label text-white">Referencia</label>
+                        <input type="text" formControlName="referencia" [ngClass]="{'is-invalid': validatePaid('referencia'), 'is-valid': !validatePaid('referencia') && paidSubmitted }" class="form-control" placeholder="Referencia" aria-describedby="Referencia"/>
+                        <small id="referencia" *ngIf="validatePaid('referencia')" class="text-danger">Este campo es obligatorio</small>
+                    </div>
+
+                    <div class="my-3">
+
+                        <div class="form-group file-area border">
+                            <input #fileImg (change)="cambiarImage($event)" type="file" name="images" id="images" required="required" multiple="multiple" />
+                            <div class="file-dummy">
+
+                                <div class="default py-5">
+                                    <h5 class="text-center card-title text-muted">
+                                        Agregar Imagen
+                                    </h5>
+                                    <p class="text-center card-text fs-2 mb-0">
+                                        <i class="bi bi-plus"></i>
+                                    </p>
+                                    <p class="text-center card-text fs-sm">Arrastre la imagen ó dar click aquí</p>
+                                </div>
+
+                                <!-- IMG VALIDA -->
+                                <div class="success">
+
+                                    <div class="d-flex justify-content-center" *ngIf="imgTempP">
+                                        <div class="mx-auto" style="background-image: url({{imgTempP}});width: 400px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;"></div>
+                                    </div>
+
+                                </div>
+                                <!-- IMG VALIDA -->
+                            </div>
+                        </div>
+
+                        <div *ngIf="imgTempP" class="d-flex justify-content-between flex-wrap pt-4 gap-2">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="imgTempP = ''; fileImg.value = ''"> Eliminar </button>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button [disabled]="btnPaid" type="submit" name="" id="" class="btn btn-primary w-100">
+                            <span class="text-white" *ngIf="!btnPaid">
+                                Registrar Pago
+                            </span>
+                            <span class="text-white" *ngIf="btnPaid">
+                                Guardando...
+                            </span>
                         </button>
-                    </ng-container>
-                </ng-container>              
-                
+                    </div>
+                    
+
+                </form>
             </div>
 
-            <!-- PAGAR AHORA -->
-            <div *ngIf="listTicketsSelect.length > 0" class="d-flex flex-column mb-3">
-                <p class="text-muted">Tickets seleccionados {{ listTicketsSelect.length }} </p>
-
-                <div class="d-grid gap-2"> 
-                    <button type="button" name="" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paidTickets">
-                        Pagar Ahora
-                    </button>
-                </div>                    
-            </div>
-
-            <hr class="mb-4">
-
-            <div class="d-flex flex-wrap justify-content-between mb-3">
-                <h4>Elegir tickets aleatorios</h4>
-                <button type="button" class="btn btn-sm btn-primary" (click)="aleatorios()" role="button" aria-expanded="false" aria-controls="aleatoriosTicke">
-                    aleatorio
-                </button>
-                
-            </div>
-
-            <div class="collapse mb-3" id="aleatoriosTicke">
-                <div class="card card-body">
-                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-              </div>
-
-            <!-- TICKETS -->
-            <div class="d-flex justify-content-center flex-wrap w-100">
-
-                <h4 *ngIf="ticketsD.length === 0"> No se encontraron tickets disponibles... </h4>
-
-
-                <ng-container >
-                    <ng-container *ngFor="let ticket of ticketsD">
-                        <button [disabled]="rifa.estado === 'Pendiente' || !rifa.abierta" (click)="addTicketList(ticket)" data-toggle="modal" data-target="#modalTicket" style="width: 5rem;" type="button" class="border-0 m-1 text-center text-white pointer" [ngClass]="{'bg-success': ticket.estado === 'Disponible', 'bg-warning': ticket.estado === 'Apartado', 'bg-danger': ticket.estado === 'Pagado'}">
-                            <p class="mb-0 fw-bold fs-3"> {{ ticket.numero }} </p>
-                        </button>
-                    </ng-container>
-                </ng-container>
-
-            </div>
-
-            <div class="d-flex justify-content-end">
-                <div class="btn-group mb-2" role="group" aria-label="Basic example">
-                  <button [disabled]="query.desde === 0" (click)="cambiarPagina(query.hasta * -1)" type="button" class="btn btn-dark text-light">
-                    -
-                  </button>
-
-                  <button [disabled]="query.desde + query.hasta >= disponibles" (click)="cambiarPagina(query.hasta)" type="button" class="btn btn-dark text-light">
-                    +
-                  </button>
-                </div>
-              </div>
 
         </section>
 
@@ -287,164 +343,48 @@
     </div>
 </section>
 
-<!-- Modal REGISTRAR PAGO -->
-<div class="modal fade" id="paidTickets" tabindex="-1" aria-labelledby="paidTicketsLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="paidTicketsLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div *ngIf="rifa" class="modal-body">
 
-            <div>
-                <p class="mb-1 text-center text-muted"> <small>TOTAL:</small> </p>
-                <h4 *ngIf="!metodoSelected" class="text-success text-center display-4"> {{ listTicketsSelect.length * rifa.monto | currency }} </h4>
-                <h4 *ngIf="metodoSelected" class="text-success text-center" [ngClass]="{'display-4': metodoSelected.tasa === 1, 'h5': metodoSelected.tasa !== 1 }" > {{ listTicketsSelect.length * rifa.monto | currency }} </h4>
-                <p *ngIf="metodoSelected && metodoSelected.tasa !== 1" class="mb-1 text-center text-muted"> <small>Total a pagar por {{metodoSelected.name}}:</small> </p>
-                <h4 *ngIf="metodoSelected && metodoSelected.tasa !== 1" class="text-success text-center display-4"  > {{ (listTicketsSelect.length * rifa.monto) * metodoSelected.tasa | number }} </h4>
-            </div>
-
-            <hr>
-
-            <div *ngIf="listTicketsSelect.length > 0">
-                <p class="text-muted">Tickets seleccionados {{ listTicketsSelect.length }} </p>
-                
-                <div class="d-flex justify-content-center flex-wrap w-100 mb-3">
-                    <ng-container *ngFor="let ticket of listTicketsSelect; let i = index">
-                        <button  class="btn btn-sm btn-success waves-effect waves-light m-1  position-relative" type="button">
-                            <span (click)="delTicketList(i)" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">x</span>
-                            {{ ticket.numero }}
-                        </button>
-                    </ng-container>
+<!-- BUSCAR TICKETS -->
+    <div class="modal fade" id="searchTicket" tabindex="-1" aria-labelledby="searchTicketLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="searchTicketLabel">Buscar mi ticket</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
+                <div class="modal-body">
 
-            <hr>
-
-            
-            <div *ngIf="metodoSelected" class="card shadow my-4">
-                <div class="card-body text-center">
-                    <h4 class="mb-2"> {{ metodoSelected.name }} </h4>
-                    <p class="mb-0 text-break"><span class="fw-bold">Descripción: </span> {{ metodoSelected.descripcion }}</p>
-                    <p class="mb-0">
-                        <span class="fw-bold">cuenta: </span> {{ metodoSelected.cuenta }}
-                    </p>
-                    <p *ngIf="metodoSelected.tasa !== 1" class="mb-0">
-                        <span class="fw-bold">Tasa: </span> {{ metodoSelected.tasa | number }}
-                    </p>
-                </div>
-            </div>
-
-            <form autocomplete="off" [formGroup]="paidForm" (ngSubmit)="registrarPago()">
-
-                <div class="my-3">
-                    <label for="metodoPago" class="form-label">Metodo de pago</label>
-                    <select [ngClass]="{'is-invalid': ms.value === '' && paidSubmitted, 'is-valid': ms.value !== '' && paidSubmitted }" formControlName="metodo" class="form-select" aria-label="Default select example" (change)="selecMetodo(ms.value)" #ms>
-                        <option value="">Seleccionar Metodo de Pago</option>
-                        <option [value]="metodo.name" *ngFor="let metodo of rifa.metodos" > {{ metodo.name }} </option>
-                    </select>
-                    <small id="metodoPago" *ngIf="ms.value === '' && paidSubmitted" class="text-danger">Este campo es obligatorio</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Monto</label>
-                    <input type="number" min="1" formControlName="amount" [ngClass]="{'is-invalid': validatePaid('amount'), 'is-valid': !validatePaid('amount') && paidSubmitted }" class="form-control" placeholder="Monto" aria-describedby="Monto"/>
-                    <small id="amount" *ngIf="validatePaid('amount')" class="text-danger">Este campo es obligatorio y debe ser mayor a 0</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Referencia</label>
-                    <input type="text" formControlName="referencia" [ngClass]="{'is-invalid': validatePaid('referencia'), 'is-valid': !validatePaid('referencia') && paidSubmitted }" class="form-control" placeholder="Referencia" aria-describedby="Referencia"/>
-                    <small id="referencia" *ngIf="validatePaid('referencia')" class="text-danger">Este campo es obligatorio</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Nombres</label>
-                    <input type="text" formControlName="nombre" [ngClass]="{'is-invalid': validatePaid('nombre'), 'is-valid': !validatePaid('nombre') && paidSubmitted }" class="form-control" placeholder="nombre" aria-describedby="nombre"/>
-                    <small id="nombre" *ngIf="validatePaid('nombre')" class="text-danger">Este campo es obligatorio</small>
-                </div>
-
-                <div class="mb-3">
-                    <label for="" class="form-label">Cedula</label>
-                    <input type="text" formControlName="cedula" [ngClass]="{'is-invalid': validatePaid('cedula'), 'is-valid': !validatePaid('cedula') && paidSubmitted }" class="form-control" placeholder="cedula" aria-describedby="cedula"/>
-                    <small id="cedula" *ngIf="validatePaid('cedula')" class="text-danger">Este campo es obligatorio</small>
-                </div>
-
-                <div class="row mb-3">                    
-                    <div class="col-4">
-                        <label for="codigoTelefonico" class="form-label">Código Telefónico</label>
-                        <select #cs formControlName="codigo" class="form-select" id="codigoTelefonico" [ngClass]="{'is-invalid': cs.value === '' && paidSubmitted, 'is-valid': cs.value !== '' && paidSubmitted }">
-                            <option value="">Seleccionar Codigo</option>
-                            <option *ngFor="let pais of paises" [value]="pais.phoneCode">
-                                {{ pais.nameES }} (+{{ pais.phoneCode }})
-                            </option>
-                        </select>
-                        <small id="codigo" *ngIf="cs.value === '' && paidSubmitted" class="text-danger">Este campo es obligatorio</small>
-
+                    <!-- BUSCADOR -->
+                    <div class="mb-4">
+                        <label for="search-input" class="form-label">Buscar</label>
+                        <input (keydown.enter)="search(searchI.value)" #searchI class="form-control" type="search" id="search-input" placeholder="Buscar por telefono o cedula">
                     </div>
-                    
-                    <div class="col">
-                        <label for="" class="form-label">Telefono ejemplo 4240000000</label>
-                        <input type="text" formControlName="telefono" [ngClass]="{'is-invalid': validatePaid('telefono'), 'is-valid': !validatePaid('telefono') && paidSubmitted }" class="form-control" placeholder="telefono" aria-describedby="telefono"/>
-                        <small id="telefono" *ngIf="validatePaid('telefono')" class="text-danger">Este campo es obligatorio</small>
-                    </div>
-                </div>                
 
-                <div class="mb-3">
-                    <label for="" class="form-label">Dirección</label>
-                    <input type="text" formControlName="direccion" [ngClass]="{'is-invalid': validatePaid('direccion'), 'is-valid': !validatePaid('direccion') && paidSubmitted }" class="form-control" placeholder="direccion" aria-describedby="direccion"/>
-                    <small id="direccion" *ngIf="validatePaid('direccion')" class="text-danger">Este campo es obligatorio</small>
-                </div>
+                    <!-- TICKETS -->
+                    <ng-container *ngIf="tickets.length > 0">
 
-                <div class="my-3">
-
-                    <div class="form-group file-area border">
-                        <input #fileImg (change)="cambiarImage($event)" type="file" name="images" id="images" required="required" multiple="multiple" />
-                        <div class="file-dummy">
-
-                            <div class="default py-5">
-                                <h5 class="text-center card-title text-muted">
-                                    Agregar Imagen
-                                </h5>
-                                <p class="text-center card-text fs-2 mb-0">
-                                    <i class="bi bi-plus"></i>
-                                </p>
-                                <p class="text-center card-text fs-sm">Arrastre la imagen ó dar click aquí</p>
+                        <div class="card mb-3" *ngFor="let ticket of tickets">
+                            <div class="card-body">
+                                <h5 class="card-title display-4"> #{{ ticket.numero }} </h5>
+                                <p class="card-text fs-sm mb-0" [ngClass]="{'text-warning': ticket.estado === 'Apartado', 'text-danger': ticket.estado === 'Pagado'}"> {{ ticket.estado }} </p>
+                                <p class="card-text fw-bold"> Valor del ticket {{ rifa.monto | currency }} </p>
                             </div>
-
-                            <!-- IMG VALIDA -->
-                            <div class="success">
-
-                                <div class="d-flex justify-content-center" *ngIf="imgTempP">
-                                    <div class="mx-auto" style="background-image: url({{imgTempP}});width: 400px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;"></div>
-                                </div>
-
-                            </div>
-                            <!-- IMG VALIDA -->
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"> {{ ticket.nombre }} </li>
+                                <li class="list-group-item"> {{ ticket.telefono }} </li>
+                                <li class="list-group-item" *ngFor="let pago of ticket.pagos">
+                                    <span class="fw-bold">{{ pago.descripcion }}</span> - <small> {{ pago.fecha | date:'d/M/yy, h:mm a' }} </small> - {{ pago.monto | currency }}
+                                </li>
+                                <li class="list-group-item"> <span class="fw-bold">resta: {{ (rifa.monto - ticket.total!) | currency }} </span> </li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <div *ngIf="imgTempP" class="d-flex justify-content-between flex-wrap pt-4 gap-2">
-                        <button type="button" class="btn btn-danger btn-sm" (click)="imgTempP = ''; fileImg.value = ''"> Eliminar </button>
-                    </div>
+                    </ng-container>
+
                 </div>
-
-                <div class="d-grid gap-2">
-                    <button type="submit" name="" id="" class="btn btn-primary w-100">
-                        Registrar Pago
-                    </button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
-                
-
-            </form>
-            
-
-
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
     </div>
-  </div>

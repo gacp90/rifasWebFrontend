@@ -1,22 +1,21 @@
 <!-- SLIDER -->
 
-<div class="d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
-    <h2> {{ params.title }} </h2>    
+<div class="text-white d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
+    <h2 class="text-white"> {{ params.title }} </h2>    
 </div>
 
 <div class="w-100">
-
     <swiper-container #swiperCards style="border-radius: 2rem;">
 
         <!-- SLIDER -->
         <swiper-slide class="swiper-slide" *ngFor="let rifa of rifas">
-            <div class="card product-card card-static pb-0">
+            <div class="card product-card card-static pb-0" style="background: #212121;">
                 <a class="card-img-top d-block overflow-hidden" [routerLink]="['/rifa', rifa.rifid]">
                   <img *ngIf="rifa.img.length > 0" [src]="rifa.img[0].img | imagen " alt="Product" class="loaded tns-complete">
                   <img *ngIf="rifa.img.length === 0" [src]="'none' | imagen " alt="Product" class="loaded tns-complete">
                 </a>
                 <app-countdown-timer [targetDate]="rifa.fecha" class="mx-auto mt-2"></app-countdown-timer>
-                <div class="card-body py-2">
+                <div class="card-body py-2" style="background: #212121;">
                     <a class="product-meta d-block fs-xs pb-1"> {{ rifa.fecha | date:'dd/MM/Y h:m a' }} </a>
                     <p class="text-muted mb-0 fs-xs"> Loteria del tachira "A"</p>
                     <h3 class="product-title fs-sm text-truncate">
@@ -24,7 +23,7 @@
                     </h3>
                     <div class="product-price">
                         <span class="text-accent" >
-                            <span> {{ rifa.monto | currency }} </span>
+                            <span class="text-white"> {{ rifa.monto * rifa.metodos[0].tasa | number }} Bs </span>
                         </span>                        
                     </div>
                 </div>

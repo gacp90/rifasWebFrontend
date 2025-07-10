@@ -28,6 +28,7 @@ export class Ticket{
         public disponible: boolean,
         public ganador: boolean,
         public img: _img[],
+        public seleccionado?: boolean,
         public total?: number,
         public _id?: string,
         public tid?: string,

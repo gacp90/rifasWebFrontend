@@ -4,49 +4,33 @@
 
 // DOMAINS
 /**
-  base_url: 'https://admin.rifaselmocho.com/api',
-  local_url: 'https://rifaselmocho.com',
 
   base_url: 'http://localhost:3000/api',
   local_url: 'http://localhost:4200',
 
-  // RIFAS EL MOCHO
-  empresa: {
-    name:'rifaselmocho.com',
-    address:'San Cristóbal - Táchira - Venezuela',
-    nit:'000000000',
-    email: 'rifaselmocho@gmail.com',
-    phone: '+584121672617',
-    facebook: 'https://www.facebook.com/rifaselmocho',
-    instagram: 'https://www.instagram.com/rifaselmocho',
-    tiktok: 'none',
-    whatsapp: 'whatsapp://send?text=hola,+me+interesa+comprar+un+numero&phone=+584121672617',
-    logo: 'logo-shopy.webp',
-    logob: 'logo-shopy-blanco.webp',
-    ico: 'logo-shopy.webp',
-    sizeico: '150'
-  }
+  base_url: 'https://admin.ganaconkingjesus.com/api',
+  local_url: 'https://ganaconkingjesus.com',
 
 */
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:3000/api',
-  local_url: 'http://localhost:4200',
+  base_url: 'https://admin.ganaconkingjesus.com/api',
+  local_url: 'https://ganaconkingjesus.com',
   empresa: {
-    name:'rifaselmocho.com',
-    address:'San Cristóbal - Táchira - Venezuela',
+    name:'ganaconkingjesus.com',
+    address:'San Carlos - Cojedes - Venezuela',
     nit:'000000000',
-    email: 'rifaselmocho@gmail.com',
-    phone: '+584121672617',
-    facebook: 'https://www.facebook.com/rifaselmocho',
-    instagram: 'https://www.instagram.com/rifaselmocho',
+    email: 'ganaconelkingjesus1987@gmail.com',
+    phone: '+584124287708',
+    facebook: 'https://www.facebook.com/ganaconelkingjesus',
+    instagram: 'https://www.instagram.com/ganaconelkingjesus',
     tiktok: 'none',
-    whatsapp: 'whatsapp://send?text=hola,+me+interesa+comprar+un+numero&phone=+584121672617',
-    logo: 'logo-shopy.webp',
-    logob: 'logo-shopy-blanco.webp',
-    ico: 'logo-shopy.webp',
-    sizeico: '150'
+    whatsapp: 'whatsapp://send?text=hola,+me+interesa+comprar+un+numero&phone=+584124287708',
+    logo: 'logo-gold.webp',
+    logob: 'logo-gold.webp',
+    ico: 'logo.webp',
+    sizeico: '120'
   }
 };
 

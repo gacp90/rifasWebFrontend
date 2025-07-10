@@ -5,53 +5,16 @@
 <a [href]="empresa.whatsapp" target="_blank" class="btn-flotante btn btn-success rounded-pill btn-icon p-1">
     <img src="../../../assets/fonts/whatsappWhite.svg" width="40px" alt="whatsapp">
 </a>
-<footer class="footer bg-segundo pt-5">
-    <div class="container">
-        <div class="row pb-2">
-            <div class="col-md-4 col-sm-6">
-                <div class="widget widget-links widget-light pb-2 mb-4">
-                    <h3 class="widget-title text-light">navegación</h3>
-                    <ul class="widget-list">
-                        <li class="widget-list-item">
-                            <a class="widget-list-link" [routerLink]="['/home']" href="#">Inicio</a>
-                        </li>
-                        <li class="widget-list-item">
-                            <a class="widget-list-link" [routerLink]="['/about']" href="#">Nosotros</a>
-                        </li>
-                        <li class="widget-list-item">
-                            <a class="widget-list-link" [routerLink]="['/contact']" href="#">Contacto</a>
-                        </li>                        
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="widget widget-links widget-light pb-2 mb-4">
-                    <h3 class="widget-title text-light">Información</h3>
-                    <ul class="widget-list">
-                        <li class="widget-list-item"><a class="widget-list-link">Terminos &amp; Condiciones</a></li>
-                        <li class="widget-list-item"><a class="widget-list-link">Politicas de privacidad</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="widget widget-light pb-2 mb-4">
-                    <h3 class="widget-title text-light">Siguenos en:</h3>
-                    <a *ngIf="empresa.facebook !== 'none'" class="btn-social bs-light bs-facebook me-2 mb-2" [href]="empresa.facebook" target="_blank"><i class="ci-facebook"></i></a>
-                    <a *ngIf="empresa.facebook !== 'none'" class="btn-social bs-light bs-instagram me-2 mb-2" [href]="empresa.instagram" target="_blank"><i class="ci-instagram"></i></a>
-                    <a *ngIf="empresa.facebook !== 'none'" class="btn-social bs-light bs-instagram me-2 mb-2" [href]="empresa.tiktok" target="_blank"><i class="ci-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer class="footer bg-segundo pt-5" style="background: #212121 !important ;">
     
-    <div class="bg-segundo-dark px-lg-3 py-3">
+    <div class="bg-segundo-dark px-lg-3 py-3" style="background: #212121 !important ;">
 
         <div class="container">        
             <div class="row py-3">
 
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="d-flex"><i class="ci-rocket text-primary" style="font-size: 2.25rem;"></i>
+                    <div class="d-flex">
+                        <i class="ci-rocket" style="font-size: 2.25rem;"></i>
                         <div class="ps-3">
                             <h6 class="fs-base text-light mb-1">Entrega rapida</h6>
                             <p class="mb-0 fs-ms text-light opacity-50">Al siguiente dia de haber ganado</p>
@@ -60,7 +23,8 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="d-flex"><i class="ci-currency-exchange text-primary" style="font-size: 2.25rem;"></i>
+                    <div class="d-flex">
+                        <i class="ci-currency-exchange" style="font-size: 2.25rem;"></i>
                         <div class="ps-3">
                             <h6 class="fs-base text-light mb-1">Garantias</h6>
                             <p class="mb-0 fs-ms text-light opacity-50">Todos nuestros productos son 100% garantizados</p>
@@ -69,7 +33,8 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="d-flex"><i class="ci-support text-primary" style="font-size: 2.25rem;"></i>
+                    <div class="d-flex">
+                        <i class="ci-support" style="font-size: 2.25rem;"></i>
                         <div class="ps-3">
                             <h6 class="fs-base text-light mb-1">Atención</h6>
                             <p class="mb-0 fs-ms text-light opacity-50">de lunes a sabados en horario de oficina</p>
@@ -78,7 +43,8 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="d-flex"><i class="ci-card text-primary" style="font-size: 2.25rem;"></i>
+                    <div class="d-flex">
+                        <i class="ci-card" style="font-size: 2.25rem;"></i>
                         <div class="ps-3">
                             <h6 class="fs-base text-light mb-1">Pagos seguros</h6>
                             <p class="mb-0 fs-ms text-light opacity-50">Garantizamos un protección superior con los certificados SSL</p>

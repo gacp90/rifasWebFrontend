@@ -14,8 +14,7 @@ export class CardsComponent {
   constructor(  private rifasService: RifasService){}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+
     const swiperElement = this.swiperRefCard.nativeElement;
 
     // Asignar configuración al Web Component
@@ -25,6 +24,7 @@ export class CardsComponent {
     swiperElement.initialize();
 
     this.loadRifas();
+
   }
 
   
@@ -57,7 +57,7 @@ export class CardsComponent {
 
     this.rifasService.loadRifas(this.query)
         .subscribe( ({rifas}) => {
-          this.rifas = rifas;          
+          this.rifas = rifas;               
         })
 
   }

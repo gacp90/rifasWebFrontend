@@ -46,6 +46,7 @@ export class HomeComponent {
     desde: 0,
     hasta: 50,
     abierta: true,
+    estado: 'Activa',
     sort: { fecha: -1}
   }
 
@@ -53,7 +54,7 @@ export class HomeComponent {
 
     this.rifasService.loadRifas(this.query)
         .subscribe( ({rifas}) => {
-          this.rifas = rifas;
+          this.rifas = rifas;          
         }, (err) => {
           console.log(err);          
         })
@@ -61,25 +62,32 @@ export class HomeComponent {
   }
   
 
-  /** ================================================================
-   *  SWIPER CONFIG
-  ==================================================================== */
+  /**======================================================================
+   * SWIPER
+  ===================================================================== */  
   public config = {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    loop: true,
-    breakpoints: {
-        990: {
-            slidesPerView: 3,
-            spaceBetween: 20
-        },
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 40
-      }
+    grabCursor: false,
+    centeredSlides: true,
+    speed: 3000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false
     },
-    pagination: { clickable: true, dynamicBullets: true },
-    grabCursor: true
+    freeModeMomentum: false,
+    breakpoints: {
+      0: {
+          slidesPerView: 1,
+          spaceBetween: 8
+      },
+      500: {
+        slidesPerView: 3,
+        spaceBetween: 16
+      },
+      768: {
+          slidesPerView: 3,
+          spaceBetween: 24
+      }
+    }
   };
 
 }

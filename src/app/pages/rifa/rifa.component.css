@@ -1,4 +1,7 @@
 /* FILE UPLOAD IMGS */
+h1,h2,h3,h4,h5,h6,p,span{
+    color: #2d2d2d;
+}
 
 .file-area {
     width: 100%;
@@ -48,4 +51,19 @@
 
 .file-area input[type=file]:valid+.file-dummy .default {
     display: none;
+}
+
+
+/* ===================================================
+SWIPER
+====================================================*/
+
+.swiperg {
+    height: auto;
+}
+
+.swiper-slideg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
